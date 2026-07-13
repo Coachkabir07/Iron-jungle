@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FORGE — Body. Mind. Power.</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <style>
   :root {
     --black: #0A0A0A;
@@ -21,9 +22,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
-
   body {
     background: var(--black);
     color: var(--chalk);
@@ -64,24 +63,17 @@
     min-height: 100vh;
     display: flex; flex-direction: column; justify-content: center;
     padding: 120px 40px 80px;
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden;
   }
   .hero-bg {
     position: absolute; inset: 0; z-index: 0;
     background:
       radial-gradient(ellipse 60% 70% at 70% 50%, rgba(255,69,0,0.07) 0%, transparent 70%),
-      repeating-linear-gradient(
-        90deg, transparent, transparent 80px,
-        rgba(255,255,255,0.015) 80px, rgba(255,255,255,0.015) 81px
-      );
+      repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.015) 80px, rgba(255,255,255,0.015) 81px);
   }
   .hero-grid-lines {
     position: absolute; inset: 0; z-index: 0;
-    background: repeating-linear-gradient(
-      0deg, transparent, transparent 80px,
-      rgba(255,255,255,0.012) 80px, rgba(255,255,255,0.012) 81px
-    );
+    background: repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(255,255,255,0.012) 80px, rgba(255,255,255,0.012) 81px);
   }
   .hero-content { position: relative; z-index: 1; max-width: 900px; }
   .hero-eyebrow {
@@ -90,16 +82,11 @@
     text-transform: uppercase; margin-bottom: 24px;
     display: flex; align-items: center; gap: 12px;
   }
-  .hero-eyebrow::before {
-    content: ''; display: block; width: 40px; height: 1px; background: var(--fire);
-  }
+  .hero-eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: var(--fire); }
   h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(72px, 12vw, 140px);
-    line-height: 0.9;
-    letter-spacing: 2px;
-    color: var(--white);
-    margin-bottom: 32px;
+    line-height: 0.9; letter-spacing: 2px; color: var(--white); margin-bottom: 32px;
   }
   h1 .fire-word { color: var(--fire); }
   .hero-sub {
@@ -126,22 +113,12 @@
   .btn-outline:hover { border-color: var(--fire); color: var(--fire); }
   .hero-stats {
     position: absolute; right: 40px; bottom: 80px;
-    display: flex; flex-direction: column; gap: 32px;
-    z-index: 1;
+    display: flex; flex-direction: column; gap: 32px; z-index: 1;
   }
   .stat { text-align: right; }
-  .stat-number {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 48px; color: var(--white); line-height: 1;
-  }
-  .stat-label {
-    font-size: 10px; letter-spacing: 3px; color: var(--ash);
-    text-transform: uppercase;
-  }
-  .stat-line {
-    width: 60px; height: 1px; background: var(--fire);
-    margin-left: auto; margin-top: 8px;
-  }
+  .stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--white); line-height: 1; }
+  .stat-label { font-size: 10px; letter-spacing: 3px; color: var(--ash); text-transform: uppercase; }
+  .stat-line { width: 60px; height: 1px; background: var(--fire); margin-left: auto; margin-top: 8px; }
 
   /* ─── SECTIONS SHARED ─── */
   section { padding: 100px 40px; }
@@ -155,201 +132,81 @@
     font-size: clamp(40px, 6vw, 72px); color: var(--white);
     line-height: 1; margin-bottom: 24px; letter-spacing: 1px;
   }
-  .section-sub {
-    color: var(--mist); font-size: 16px; line-height: 1.7;
-    max-width: 520px; font-weight: 300;
-  }
+  .section-sub { color: var(--mist); font-size: 16px; line-height: 1.7; max-width: 520px; font-weight: 300; }
 
   /* ─── ABOUT ─── */
   #about { background: var(--iron); }
-  .about-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
-    align-items: center; max-width: 1200px; margin: 0 auto;
-  }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1200px; margin: 0 auto; }
   .about-visual {
-    position: relative; height: 500px;
-    background: var(--carbon);
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden;
+    position: relative; height: 500px; background: var(--carbon);
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
   }
-  .about-visual-inner {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 160px; color: rgba(255,69,0,0.06); line-height: 1;
-    user-select: none; letter-spacing: -4px;
-  }
-  .about-badge {
-    position: absolute; bottom: 24px; right: 24px;
-    background: var(--fire); color: var(--white);
-    padding: 12px 20px;
-    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-    font-weight: 700;
-  }
-  .about-text { }
+  .about-visual-inner { font-family: 'Bebas Neue', sans-serif; font-size: 160px; color: rgba(255,69,0,0.06); line-height: 1; user-select: none; letter-spacing: -4px; }
+  .about-badge { position: absolute; bottom: 24px; right: 24px; background: var(--fire); color: var(--white); padding: 12px 20px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
   .about-text .section-sub { max-width: 100%; margin-bottom: 32px; }
   .pillars { display: flex; flex-direction: column; gap: 20px; margin-top: 32px; }
-  .pillar {
-    display: flex; gap: 20px; align-items: flex-start;
-    padding: 20px; border: 1px solid rgba(255,255,255,0.06);
-    background: rgba(255,255,255,0.02);
-    transition: border-color 0.2s;
-  }
+  .pillar { display: flex; gap: 20px; align-items: flex-start; padding: 20px; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); transition: border-color 0.2s; }
   .pillar:hover { border-color: var(--fire); }
-  .pillar-icon {
-    font-size: 22px; min-width: 40px; margin-top: 2px;
-  }
+  .pillar-icon { font-size: 22px; min-width: 40px; margin-top: 2px; }
   .pillar-title { font-weight: 700; color: var(--white); margin-bottom: 4px; font-size: 14px; }
   .pillar-desc { font-size: 13px; color: var(--mist); line-height: 1.6; }
 
-  /* ─── PRODUCTS / E-BOOKS ─── */
+  /* ─── E-BOOKS ─── */
   #ebooks { background: var(--black); }
-  .ebooks-header {
-    max-width: 1200px; margin: 0 auto 60px;
-    display: flex; justify-content: space-between; align-items: flex-end;
-  }
-  .ebooks-grid {
-    max-width: 1200px; margin: 0 auto;
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
-  }
-  .ebook-card {
-    background: var(--carbon); padding: 40px 32px;
-    position: relative; overflow: hidden;
-    transition: background 0.3s;
-    cursor: pointer;
-  }
+  .ebooks-header { max-width: 1200px; margin: 0 auto 60px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .ebooks-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .ebook-card { background: var(--carbon); padding: 40px 32px; position: relative; overflow: hidden; transition: background 0.3s; cursor: pointer; }
   .ebook-card:hover { background: var(--steel); }
-  .ebook-card.featured {
-    background: var(--fire);
-    grid-row: span 2;
-  }
+  .ebook-card.featured { background: var(--fire); grid-row: span 2; }
   .ebook-card.featured:hover { background: var(--ember); }
-  .ebook-tag {
-    font-family: 'Space Mono', monospace;
-    font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--ash); margin-bottom: 20px;
-  }
+  .ebook-tag { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--ash); margin-bottom: 20px; }
   .ebook-card.featured .ebook-tag { color: rgba(255,255,255,0.6); }
-  .ebook-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 32px; color: var(--white); line-height: 1.1;
-    margin-bottom: 16px; letter-spacing: 1px;
-  }
+  .ebook-title { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--white); line-height: 1.1; margin-bottom: 16px; letter-spacing: 1px; }
   .ebook-desc { font-size: 13px; color: var(--mist); line-height: 1.6; margin-bottom: 32px; }
   .ebook-card.featured .ebook-desc { color: rgba(255,255,255,0.75); }
-  .ebook-price {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 42px; color: var(--white); line-height: 1;
-  }
+  .ebook-price { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: var(--white); line-height: 1; }
   .ebook-price span { font-size: 18px; vertical-align: super; margin-right: 2px; }
   .ebook-price-sub { font-size: 11px; color: var(--ash); letter-spacing: 1px; margin-top: 4px; }
   .ebook-card.featured .ebook-price-sub { color: rgba(255,255,255,0.5); }
-  .ebook-buy {
-    display: block; width: 100%; margin-top: 28px;
-    padding: 14px; text-align: center;
-    background: rgba(255,255,255,0.1); color: var(--white);
-    border: none; font-size: 12px; letter-spacing: 2px;
-    text-transform: uppercase; font-weight: 700;
-    cursor: pointer; font-family: 'Inter', sans-serif;
-    transition: background 0.2s;
-  }
+  .ebook-buy { display: block; width: 100%; margin-top: 28px; padding: 14px; text-align: center; background: rgba(255,255,255,0.1); color: var(--white); border: none; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.2s; }
   .ebook-buy:hover { background: rgba(255,255,255,0.2); }
-  .ebook-card.featured .ebook-buy {
-    background: var(--black);
-  }
-  .ebook-card.featured .ebook-buy:hover {
-    background: var(--iron);
-  }
-  .ebook-corner {
-    position: absolute; top: 0; right: 0;
-    width: 0; height: 0;
-    border-top: 40px solid var(--fire);
-    border-left: 40px solid transparent;
-  }
-  .ebook-card.featured .ebook-corner {
-    border-top-color: rgba(0,0,0,0.2);
-  }
+  .ebook-card.featured .ebook-buy { background: var(--black); }
+  .ebook-card.featured .ebook-buy:hover { background: var(--iron); }
+  .ebook-corner { position: absolute; top: 0; right: 0; width: 0; height: 0; border-top: 40px solid var(--fire); border-left: 40px solid transparent; }
+  .ebook-card.featured .ebook-corner { border-top-color: rgba(0,0,0,0.2); }
 
   /* ─── SERVICES ─── */
   #services { background: var(--iron); }
   .services-header { max-width: 1200px; margin: 0 auto 60px; }
-  .services-tabs {
-    max-width: 1200px; margin: 0 auto;
-  }
-  .tab-nav {
-    display: flex; border-bottom: 1px solid rgba(255,255,255,0.08);
-    margin-bottom: 48px; gap: 0;
-  }
-  .tab-btn {
-    padding: 16px 32px; background: none; border: none;
-    color: var(--ash); font-family: 'Inter', sans-serif;
-    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
-    font-weight: 600; cursor: pointer;
-    border-bottom: 2px solid transparent; margin-bottom: -1px;
-    transition: color 0.2s, border-color 0.2s;
-  }
+  .services-tabs { max-width: 1200px; margin: 0 auto; }
+  .tab-nav { display: flex; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 48px; gap: 0; }
+  .tab-btn { padding: 16px 32px; background: none; border: none; color: var(--ash); font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.2s, border-color 0.2s; }
   .tab-btn.active { color: var(--fire); border-bottom-color: var(--fire); }
   .tab-btn:hover { color: var(--chalk); }
   .tab-content { display: none; }
   .tab-content.active { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
   .plan-list { display: flex; flex-direction: column; gap: 16px; }
-  .plan-item {
-    background: var(--carbon); padding: 28px;
-    border-left: 3px solid transparent;
-    transition: border-color 0.2s, background 0.2s;
-  }
+  .plan-item { background: var(--carbon); padding: 28px; border-left: 3px solid transparent; transition: border-color 0.2s, background 0.2s; }
   .plan-item:hover { border-left-color: var(--fire); background: var(--steel); }
-  .plan-item-header {
-    display: flex; justify-content: space-between; align-items: flex-start;
-    margin-bottom: 12px;
-  }
+  .plan-item-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
   .plan-name { font-weight: 700; color: var(--white); font-size: 16px; }
-  .plan-badge {
-    background: var(--fire); color: var(--white);
-    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
-    padding: 4px 10px; font-weight: 700;
-  }
+  .plan-badge { background: var(--fire); color: var(--white); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; font-weight: 700; }
   .plan-badge.gold { background: var(--gold); }
   .plan-desc { font-size: 13px; color: var(--mist); line-height: 1.6; margin-bottom: 16px; }
   .plan-features { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-  .plan-features li {
-    font-size: 12px; color: var(--mist);
-    display: flex; align-items: center; gap: 10px;
-  }
+  .plan-features li { font-size: 12px; color: var(--mist); display: flex; align-items: center; gap: 10px; }
   .plan-features li::before { content: '→'; color: var(--fire); font-size: 12px; }
-  .plan-price-row {
-    display: flex; justify-content: space-between; align-items: center;
-    margin-top: 20px; padding-top: 16px;
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
-  .plan-price {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 32px; color: var(--white);
-  }
+  .plan-price-row { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06); }
+  .plan-price { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--white); }
   .plan-period { font-size: 11px; color: var(--ash); letter-spacing: 1px; }
-  .plan-action {
-    background: var(--fire); color: var(--white);
-    border: none; padding: 10px 22px;
-    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-    font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif;
-    transition: background 0.2s;
-  }
+  .plan-action { background: var(--fire); color: var(--white); border: none; padding: 10px 22px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.2s; }
   .plan-action:hover { background: var(--ember); }
-  /* right side info panel */
   .service-info { position: sticky; top: 100px; }
-  .info-block {
-    background: var(--carbon); padding: 36px;
-    border-top: 3px solid var(--fire); margin-bottom: 24px;
-  }
-  .info-block-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px; color: var(--white); margin-bottom: 16px; letter-spacing: 1px;
-  }
+  .info-block { background: var(--carbon); padding: 36px; border-top: 3px solid var(--fire); margin-bottom: 24px; }
+  .info-block-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--white); margin-bottom: 16px; letter-spacing: 1px; }
   .info-block p { font-size: 13px; color: var(--mist); line-height: 1.7; }
   .includes-list { list-style: none; margin-top: 16px; display: flex; flex-direction: column; gap: 10px; }
-  .includes-list li {
-    font-size: 13px; color: var(--chalk);
-    display: flex; align-items: center; gap: 10px;
-    padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
-  }
+  .includes-list li { font-size: 13px; color: var(--chalk); display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
   .includes-list li:last-child { border-bottom: none; }
   .check { color: var(--fire); font-size: 14px; }
 
@@ -358,198 +215,76 @@
   .payment-wrapper { max-width: 1200px; margin: 0 auto; }
   .payment-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
   .order-form { background: var(--carbon); padding: 48px; }
-  .form-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 36px; color: var(--white); margin-bottom: 32px; letter-spacing: 1px;
-  }
+  .form-title { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--white); margin-bottom: 32px; letter-spacing: 1px; }
   .form-group { margin-bottom: 24px; }
-  .form-label {
-    display: block; font-size: 10px; letter-spacing: 3px;
-    text-transform: uppercase; color: var(--ash); margin-bottom: 10px;
-    font-weight: 600;
-  }
-  .form-input, .form-select {
-    width: 100%; background: var(--iron); border: 1px solid rgba(255,255,255,0.08);
-    color: var(--chalk); padding: 14px 18px; font-size: 14px;
-    font-family: 'Inter', sans-serif; outline: none;
-    transition: border-color 0.2s;
-  }
+  .form-label { display: block; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--ash); margin-bottom: 10px; font-weight: 600; }
+  .form-input, .form-select { width: 100%; background: var(--iron); border: 1px solid rgba(255,255,255,0.08); color: var(--chalk); padding: 14px 18px; font-size: 14px; font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.2s; }
   .form-input:focus, .form-select:focus { border-color: var(--fire); }
   .form-input::placeholder { color: var(--steel); }
   .form-select option { background: var(--iron); }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .payment-methods-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 8px;
-  }
-  .pay-method {
-    background: var(--iron); border: 2px solid transparent;
-    padding: 14px 8px; text-align: center; cursor: pointer;
-    transition: border-color 0.2s, background 0.2s;
-    border-radius: 2px;
-  }
-  .pay-method:hover { border-color: rgba(255,69,0,0.4); }
-  .pay-method.selected { border-color: var(--fire); background: rgba(255,69,0,0.08); }
-  .pay-method-icon { font-size: 20px; display: block; margin-bottom: 6px; }
-  .pay-method-label { font-size: 9px; letter-spacing: 1px; color: var(--mist); text-transform: uppercase; }
-  .upi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px; }
-  .upi-option {
-    background: var(--iron); border: 2px solid transparent;
-    padding: 12px 8px; text-align: center; cursor: pointer;
-    transition: border-color 0.2s;
-  }
-  .upi-option:hover { border-color: rgba(255,69,0,0.4); }
-  .upi-option.selected { border-color: var(--fire); }
-  .upi-icon { font-size: 18px; display: block; margin-bottom: 4px; }
-  .upi-name { font-size: 9px; color: var(--mist); text-transform: uppercase; letter-spacing: 1px; }
-  .upi-input-row { margin-top: 12px; display: none; }
-  .upi-input-row.visible { display: block; }
-  .total-bar {
-    background: var(--iron); padding: 20px 24px;
-    display: flex; justify-content: space-between; align-items: center;
-    margin: 28px 0;
-  }
+  .total-bar { background: var(--iron); padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; margin: 28px 0; }
   .total-label { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--ash); }
-  .total-amount {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 36px; color: var(--fire);
-  }
-  .pay-btn {
-    width: 100%; padding: 18px; background: var(--fire); color: var(--white);
-    border: none; font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
-    font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif;
-    transition: background 0.2s; position: relative; overflow: hidden;
-  }
+  .total-amount { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--fire); }
+  .pay-btn { width: 100%; padding: 18px; background: var(--fire); color: var(--white); border: none; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.2s; }
   .pay-btn:hover { background: var(--ember); }
   .pay-btn:disabled { background: var(--steel); cursor: not-allowed; }
-  .security-note {
-    display: flex; align-items: center; gap: 8px;
-    margin-top: 16px; font-size: 11px; color: var(--ash);
-  }
-  /* order summary */
+  .security-note { display: flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 11px; color: var(--ash); }
   .order-summary { }
-  .summary-card {
-    background: var(--carbon); padding: 36px; margin-bottom: 20px;
-  }
-  .summary-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 24px; color: var(--white); margin-bottom: 24px; letter-spacing: 1px;
-  }
-  .summary-item {
-    display: flex; justify-content: space-between;
-    padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
-    font-size: 14px;
-  }
+  .summary-card { background: var(--carbon); padding: 36px; margin-bottom: 20px; }
+  .summary-title { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--white); margin-bottom: 24px; letter-spacing: 1px; }
+  .summary-item { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; }
   .summary-item:last-child { border-bottom: none; }
   .summary-item-name { color: var(--mist); }
   .summary-item-price { color: var(--white); font-weight: 600; }
-  .summary-total-row {
-    display: flex; justify-content: space-between;
-    padding-top: 20px; margin-top: 4px;
-  }
+  .summary-total-row { display: flex; justify-content: space-between; padding-top: 20px; margin-top: 4px; }
   .summary-total-label { font-weight: 700; color: var(--chalk); font-size: 15px; }
-  .summary-total-price {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 32px; color: var(--fire);
-  }
+  .summary-total-price { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--fire); }
   .testimonial-mini { background: var(--iron); padding: 24px; border-left: 3px solid var(--gold); }
   .testimonial-text { font-size: 13px; color: var(--mist); line-height: 1.6; font-style: italic; margin-bottom: 12px; }
   .testimonial-author { font-size: 11px; color: var(--ash); letter-spacing: 2px; text-transform: uppercase; }
 
-  /* ─── MODAL / PAYMENT SUCCESS ─── */
-  .modal-overlay {
-    position: fixed; inset: 0; z-index: 9999;
-    background: rgba(0,0,0,0.85);
-    display: none; align-items: center; justify-content: center;
-    backdrop-filter: blur(8px);
-  }
+  /* ─── MODAL ─── */
+  .modal-overlay { position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center; backdrop-filter: blur(8px); }
   .modal-overlay.open { display: flex; }
-  .modal {
-    background: var(--carbon); max-width: 480px; width: 90%;
-    padding: 48px; text-align: center; position: relative;
-  }
+  .modal { background: var(--carbon); max-width: 480px; width: 90%; padding: 48px; text-align: center; position: relative; }
   .modal-icon { font-size: 48px; margin-bottom: 20px; }
-  .modal-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 48px; color: var(--white); margin-bottom: 12px; letter-spacing: 1px;
-  }
+  .modal-title { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--white); margin-bottom: 12px; letter-spacing: 1px; }
   .modal-sub { font-size: 15px; color: var(--mist); line-height: 1.6; margin-bottom: 32px; }
-  .modal-close {
-    position: absolute; top: 16px; right: 20px;
-    background: none; border: none; color: var(--ash);
-    font-size: 20px; cursor: pointer;
-  }
+  .modal-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: var(--ash); font-size: 20px; cursor: pointer; }
 
   /* ─── COACHING ─── */
   #coaching { background: var(--iron); }
   .coaching-grid { max-width: 1200px; margin: 0 auto; }
   .coaching-header { margin-bottom: 60px; }
   .cards-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-  .coach-card {
-    background: var(--carbon); padding: 40px 32px;
-    position: relative; overflow: hidden;
-    transition: background 0.3s;
-  }
+  .coach-card { background: var(--carbon); padding: 40px 32px; position: relative; overflow: hidden; transition: background 0.3s; }
   .coach-card:hover { background: var(--steel); }
   .coach-card.highlight { background: var(--black); border-top: 3px solid var(--fire); }
-  .coach-step {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 80px; color: rgba(255,255,255,0.04);
-    position: absolute; top: 20px; right: 20px; line-height: 1;
-  }
+  .coach-step { font-family: 'Bebas Neue', sans-serif; font-size: 80px; color: rgba(255,255,255,0.04); position: absolute; top: 20px; right: 20px; line-height: 1; }
   .coach-icon { font-size: 32px; margin-bottom: 24px; display: block; }
-  .coach-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px; color: var(--white); margin-bottom: 12px; letter-spacing: 1px;
-  }
+  .coach-title { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--white); margin-bottom: 12px; letter-spacing: 1px; }
   .coach-desc { font-size: 13px; color: var(--mist); line-height: 1.7; }
-  .coaching-cta {
-    margin-top: 48px; text-align: center;
-    padding: 48px; background: var(--carbon);
-    border-top: 1px solid rgba(255,69,0,0.2);
-  }
+  .coaching-cta { margin-top: 48px; text-align: center; padding: 48px; background: var(--carbon); border-top: 1px solid rgba(255,69,0,0.2); }
   .coaching-cta p { font-size: 20px; color: var(--chalk); margin-bottom: 24px; max-width: 500px; margin-inline: auto; line-height: 1.6; }
 
   /* ─── FOOTER ─── */
-  footer {
-    background: var(--iron); padding: 60px 40px 32px;
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
+  footer { background: var(--iron); padding: 60px 40px 32px; border-top: 1px solid rgba(255,255,255,0.06); }
   .footer-grid { max-width: 1200px; margin: 0 auto; }
-  .footer-top {
-    display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: 60px; margin-bottom: 60px;
-  }
-  .footer-brand-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 36px; color: var(--fire); letter-spacing: 4px;
-    text-decoration: none; display: block; margin-bottom: 16px;
-  }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+  .footer-brand-name { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--fire); letter-spacing: 4px; text-decoration: none; display: block; margin-bottom: 16px; }
   .footer-brand-desc { font-size: 13px; color: var(--ash); line-height: 1.7; }
-  .footer-col-title {
-    font-size: 10px; letter-spacing: 3px; color: var(--fire);
-    text-transform: uppercase; margin-bottom: 20px; font-weight: 700;
-  }
+  .footer-col-title { font-size: 10px; letter-spacing: 3px; color: var(--fire); text-transform: uppercase; margin-bottom: 20px; font-weight: 700; }
   .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
   .footer-links a { color: var(--ash); font-size: 13px; text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--chalk); }
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding-top: 28px;
-    display: flex; justify-content: space-between; align-items: center;
-  }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; }
   .footer-copy { font-size: 12px; color: var(--ash); }
   .social-links { display: flex; gap: 20px; }
-  .social-links a {
-    color: var(--ash); font-size: 18px; text-decoration: none;
-    transition: color 0.2s;
-  }
+  .social-links a { color: var(--ash); font-size: 18px; text-decoration: none; transition: color 0.2s; }
   .social-links a:hover { color: var(--fire); }
 
   /* ─── ANIMATIONS ─── */
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
   .fadein { animation: fadeInUp 0.7s ease forwards; }
   .fadein-delay-1 { animation-delay: 0.1s; opacity: 0; }
   .fadein-delay-2 { animation-delay: 0.2s; opacity: 0; }
@@ -575,7 +310,6 @@
     .cards-row { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
     .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
-    .payment-methods-grid { grid-template-columns: repeat(2, 1fr); }
     .coaching-cta p { font-size: 16px; }
   }
 </style>
@@ -600,34 +334,17 @@
   <div class="hero-grid-lines"></div>
   <div class="hero-content">
     <div class="hero-eyebrow fadein fadein-delay-1">Build Something Unbreakable</div>
-    <h1 class="fadein fadein-delay-2">
-      FORGE<br>YOUR<br><span class="fire-word">BODY</span>
-    </h1>
-    <p class="hero-sub fadein fadein-delay-3">
-      E-Books, workout blueprints, and online coaching built on one philosophy —
-      discipline is not a feeling, it's a system. Your system starts here.
-    </p>
+    <h1 class="fadein fadein-delay-2">FORGE<br>YOUR<br><span class="fire-word">BODY</span></h1>
+    <p class="hero-sub fadein fadein-delay-3">E-Books, workout blueprints, and online coaching built on one philosophy — discipline is not a feeling, it's a system. Your system starts here.</p>
     <div class="hero-actions fadein fadein-delay-4">
       <a href="#ebooks" class="btn-primary">Browse E-Books</a>
       <a href="#services" class="btn-outline">View Plans</a>
     </div>
   </div>
   <div class="hero-stats fadein fadein-delay-4">
-    <div class="stat">
-      <div class="stat-number">500+</div>
-      <div class="stat-label">Clients Transformed</div>
-      <div class="stat-line"></div>
-    </div>
-    <div class="stat">
-      <div class="stat-number">8</div>
-      <div class="stat-label">Years in the Iron</div>
-      <div class="stat-line"></div>
-    </div>
-    <div class="stat">
-      <div class="stat-number">12</div>
-      <div class="stat-label">E-Books Published</div>
-      <div class="stat-line"></div>
-    </div>
+    <div class="stat"><div class="stat-number">500+</div><div class="stat-label">Clients Transformed</div><div class="stat-line"></div></div>
+    <div class="stat"><div class="stat-number">8</div><div class="stat-label">Years in the Iron</div><div class="stat-line"></div></div>
+    <div class="stat"><div class="stat-number">12</div><div class="stat-label">E-Books Published</div><div class="stat-line"></div></div>
   </div>
 </section>
 
@@ -641,33 +358,11 @@
     <div class="about-text">
       <div class="section-label">The Philosophy</div>
       <h2 class="section-title">BODY FOLLOWS<br>MINDSET</h2>
-      <p class="section-sub">
-        I'm not here to sell you a shortcut. I'm here to hand you the exact system
-        that took me from average to competitive — and it starts in your head.
-        Every program, every book, every coaching call is built on three pillars.
-      </p>
+      <p class="section-sub">I'm not here to sell you a shortcut. I'm here to hand you the exact system that took me from average to competitive — and it starts in your head. Every program, every book, every coaching call is built on three pillars.</p>
       <div class="pillars">
-        <div class="pillar">
-          <div class="pillar-icon">🔥</div>
-          <div>
-            <div class="pillar-title">Stimulus</div>
-            <div class="pillar-desc">Train with a purpose on every rep. Intensity is a tool, not a personality trait.</div>
-          </div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-icon">🧠</div>
-          <div>
-            <div class="pillar-title">Structure</div>
-            <div class="pillar-desc">Periodization, progressive overload, deloads. The boring stuff is the powerful stuff.</div>
-          </div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-icon">⚡</div>
-          <div>
-            <div class="pillar-title">Standards</div>
-            <div class="pillar-desc">What you tolerate is what you get. I help you raise the floor, not just the ceiling.</div>
-          </div>
-        </div>
+        <div class="pillar"><div class="pillar-icon">🔥</div><div><div class="pillar-title">Stimulus</div><div class="pillar-desc">Train with a purpose on every rep. Intensity is a tool, not a personality trait.</div></div></div>
+        <div class="pillar"><div class="pillar-icon">🧠</div><div><div class="pillar-title">Structure</div><div class="pillar-desc">Periodization, progressive overload, deloads. The boring stuff is the powerful stuff.</div></div></div>
+        <div class="pillar"><div class="pillar-icon">⚡</div><div><div class="pillar-title">Standards</div><div class="pillar-desc">What you tolerate is what you get. I help you raise the floor, not just the ceiling.</div></div></div>
       </div>
     </div>
   </div>
@@ -676,87 +371,59 @@
 <!-- ─── E-BOOKS ─── -->
 <section id="ebooks">
   <div class="ebooks-header">
-    <div>
-      <div class="section-label">Digital Products</div>
-      <h2 class="section-title">THE E-BOOKS</h2>
-    </div>
-    <p style="color:var(--mist);font-size:14px;max-width:300px;line-height:1.7;text-align:right;">
-      Instant PDF delivery. Every book comes with a lifetime access link.
-    </p>
+    <div><div class="section-label">Digital Products</div><h2 class="section-title">THE E-BOOKS</h2></div>
+    <p style="color:var(--mist);font-size:14px;max-width:300px;line-height:1.7;text-align:right;">Instant PDF delivery. Every book comes with a lifetime access link.</p>
   </div>
   <div class="ebooks-grid">
-
-    <div class="ebook-card featured" onclick="selectProduct('complete-bundle')">
+    <div class="ebook-card featured">
       <div class="ebook-corner"></div>
       <div class="ebook-tag">🏆 Best Seller — Complete Bundle</div>
       <div class="ebook-title">THE FORGE<br>COMPLETE<br>COLLECTION</div>
-      <div class="ebook-desc">
-        All 4 books in one bundle. From your first week in the gym to advanced periodization
-        and the mindset that glues it all together. The only thing you'll ever need.
-      </div>
+      <div class="ebook-desc">All 4 books in one bundle. From your first week in the gym to advanced periodization and the mindset that glues it all together. The only thing you'll ever need.</div>
       <div class="ebook-price"><span>₹</span>1,499</div>
       <div class="ebook-price-sub">Normally ₹2,996 — Save 50%</div>
-      <button class="ebook-buy" onclick="event.stopPropagation();openPayment('complete-bundle','The Forge Complete Collection','₹1,499',1499)">
-        GET THE BUNDLE →
-      </button>
+      <button class="ebook-buy" onclick="openPayment('complete-bundle','The Forge Complete Collection',1499)">GET THE BUNDLE →</button>
     </div>
-
-    <div class="ebook-card" onclick="selectProduct('foundation')">
+    <div class="ebook-card">
       <div class="ebook-corner"></div>
       <div class="ebook-tag">Basic — Beginner</div>
       <div class="ebook-title">FOUNDATION<br>CODE</div>
-      <div class="ebook-desc">
-        Everything a beginner needs: movement patterns, progressive overload, nutrition basics,
-        and building the habit that sticks. 12-week starter program included.
-      </div>
+      <div class="ebook-desc">Everything a beginner needs: movement patterns, progressive overload, nutrition basics, and building the habit that sticks. 12-week starter program included.</div>
       <div class="ebook-price"><span>₹</span>499</div>
       <div class="ebook-price-sub">PDF · 120 Pages · Instant Download</div>
-      <button class="ebook-buy" onclick="event.stopPropagation();openPayment('foundation','Foundation Code E-Book','₹499',499)">Buy Now →</button>
+      <button class="ebook-buy" onclick="openPayment('foundation-code','Foundation Code E-Book',499)">Buy Now →</button>
     </div>
-
-    <div class="ebook-card" onclick="selectProduct('mindset')">
+    <div class="ebook-card">
       <div class="ebook-corner"></div>
       <div class="ebook-tag">Basic — Mindset</div>
       <div class="ebook-title">THE IRON<br>MIND</div>
-      <div class="ebook-desc">
-        My complete philosophy on discipline, identity, motivation, and building mental
-        resilience. The way I think — written out, chapter by chapter.
-      </div>
+      <div class="ebook-desc">My complete philosophy on discipline, identity, motivation, and building mental resilience. The way I think — written out, chapter by chapter.</div>
       <div class="ebook-price"><span>₹</span>399</div>
       <div class="ebook-price-sub">PDF · 90 Pages · Instant Download</div>
-      <button class="ebook-buy" onclick="event.stopPropagation();openPayment('mindset','The Iron Mind E-Book','₹399',399)">Buy Now →</button>
+      <button class="ebook-buy" onclick="openPayment('iron-mind','The Iron Mind E-Book',399)">Buy Now →</button>
     </div>
-
-    <div class="ebook-card" onclick="selectProduct('advanced')">
+    <div class="ebook-card">
       <div class="ebook-corner"></div>
       <div class="ebook-tag">Advanced — Training</div>
       <div class="ebook-title">PERIODIZATION<br>MASTERY</div>
-      <div class="ebook-desc">
-        Advanced training theory: block periodization, conjugate methods, autoregulation,
-        peaking protocols, and training for specific goals. For serious athletes.
-      </div>
+      <div class="ebook-desc">Advanced training theory: block periodization, conjugate methods, autoregulation, peaking protocols, and training for specific goals. For serious athletes.</div>
       <div class="ebook-price"><span>₹</span>799</div>
       <div class="ebook-price-sub">PDF · 180 Pages · Instant Download</div>
-      <button class="ebook-buy" onclick="event.stopPropagation();openPayment('advanced','Periodization Mastery E-Book','₹799',799)">Buy Now →</button>
+      <button class="ebook-buy" onclick="openPayment('periodization-mastery','Periodization Mastery E-Book',799)">Buy Now →</button>
     </div>
-
-    <div class="ebook-card" onclick="selectProduct('nutrition')">
+    <div class="ebook-card">
       <div class="ebook-corner"></div>
       <div class="ebook-tag">Advanced — Nutrition</div>
       <div class="ebook-title">FUEL<br>PROTOCOL</div>
-      <div class="ebook-desc">
-        Evidence-based sports nutrition: macros, timing, supplementation, cutting,
-        bulking, and recomposition — no bro-science, just results.
-      </div>
+      <div class="ebook-desc">Evidence-based sports nutrition: macros, timing, supplementation, cutting, bulking, and recomposition — no bro-science, just results.</div>
       <div class="ebook-price"><span>₹</span>699</div>
       <div class="ebook-price-sub">PDF · 140 Pages · Instant Download</div>
-      <button class="ebook-buy" onclick="event.stopPropagation();openPayment('nutrition','Fuel Protocol E-Book','₹699',699)">Buy Now →</button>
+      <button class="ebook-buy" onclick="openPayment('fuel-protocol','Fuel Protocol E-Book',699)">Buy Now →</button>
     </div>
-
   </div>
 </section>
 
-<!-- ─── SERVICES / WORKOUT PLANS ─── -->
+<!-- ─── SERVICES ─── -->
 <section id="services">
   <div class="services-header">
     <div class="section-label">Workout Plans</div>
@@ -765,56 +432,23 @@
   </div>
   <div class="services-tabs">
     <div class="tab-nav">
-      <button class="tab-btn active" onclick="switchTab('basic')">Basic Plans</button>
-      <button class="tab-btn" onclick="switchTab('advanced')">Advanced Plans</button>
+      <button class="tab-btn active" onclick="switchTab('basic', event)">Basic Plans</button>
+      <button class="tab-btn" onclick="switchTab('advanced', event)">Advanced Plans</button>
     </div>
-
-    <!-- BASIC TAB -->
     <div class="tab-content active" id="tab-basic">
       <div class="plan-list">
-
         <div class="plan-item">
-          <div class="plan-item-header">
-            <div class="plan-name">FIRST FORGE — 3 Days/Week</div>
-            <div class="plan-badge">Basic</div>
-          </div>
+          <div class="plan-item-header"><div class="plan-name">FIRST FORGE — 3 Days/Week</div><div class="plan-badge">Basic</div></div>
           <div class="plan-desc">Perfect if you're just starting out. Simple full-body workouts, easy to follow, no gym experience needed.</div>
-          <ul class="plan-features">
-            <li>12-week easy workout schedule</li>
-            <li>Video guide for every exercise</li>
-            <li>Simple diet plan (Indian food)</li>
-            <li>PDF + Excel tracker</li>
-          </ul>
-          <div class="plan-price-row">
-            <div>
-              <div class="plan-price">₹499</div>
-              <div class="plan-period">One-time • Instant Access</div>
-            </div>
-            <button class="plan-action" onclick="openPayment('starter-strength','FIRST FORGE','₹499',499)">Get Plan</button>
-          </div>
+          <ul class="plan-features"><li>12-week easy workout schedule</li><li>Video guide for every exercise</li><li>Simple diet plan (Indian food)</li><li>PDF + Excel tracker</li></ul>
+          <div class="plan-price-row"><div><div class="plan-price">₹499</div><div class="plan-period">One-time • Instant Access</div></div><button class="plan-action" onclick="openPayment('starter-strength','FIRST FORGE Plan',499)">Get Plan</button></div>
         </div>
-
         <div class="plan-item">
-          <div class="plan-item-header">
-            <div class="plan-name">LEAN FORGE — 4 Days/Week</div>
-            <div class="plan-badge">Basic</div>
-          </div>
+          <div class="plan-item-header"><div class="plan-name">LEAN FORGE — 4 Days/Week</div><div class="plan-badge">Basic</div></div>
           <div class="plan-desc">Lose fat and tone up together. Best if you've been going to the gym for 3–6 months already.</div>
-          <ul class="plan-features">
-            <li>16-week plan with rest weeks</li>
-            <li>Easy upper/lower body split</li>
-            <li>Simple calorie & protein guide</li>
-            <li>Weekly progress tracker</li>
-          </ul>
-          <div class="plan-price-row">
-            <div>
-              <div class="plan-price">₹699</div>
-              <div class="plan-period">One-time • Instant Access</div>
-            </div>
-            <button class="plan-action" onclick="openPayment('recomp','Lean Forge Plan','₹699',699)">Get Plan</button>
-          </div>
+          <ul class="plan-features"><li>16-week plan with rest weeks</li><li>Easy upper/lower body split</li><li>Simple calorie & protein guide</li><li>Weekly progress tracker</li></ul>
+          <div class="plan-price-row"><div><div class="plan-price">₹699</div><div class="plan-period">One-time • Instant Access</div></div><button class="plan-action" onclick="openPayment('lean-forge','LEAN FORGE Plan',699)">Get Plan</button></div>
         </div>
-
       </div>
       <div class="service-info">
         <div class="info-block">
@@ -834,54 +468,20 @@
         </div>
       </div>
     </div>
-
-    <!-- ADVANCED TAB -->
     <div class="tab-content" id="tab-advanced">
       <div class="plan-list">
-
         <div class="plan-item">
-          <div class="plan-item-header">
-            <div class="plan-name">IRON BUILD — 5 Days/Week</div>
-            <div class="plan-badge gold">Advanced</div>
-          </div>
+          <div class="plan-item-header"><div class="plan-name">IRON BUILD — 5 Days/Week</div><div class="plan-badge gold">Advanced</div></div>
           <div class="plan-desc">For people who are serious about building muscle. Weight and reps increase every week for real, visible growth.</div>
-          <ul class="plan-features">
-            <li>16-week structured program</li>
-            <li>Clear weekly progress plan</li>
-            <li>High-protein Indian diet plan</li>
-            <li>Weekly check-in support</li>
-          </ul>
-          <div class="plan-price-row">
-            <div>
-              <div class="plan-price">₹999</div>
-              <div class="plan-period">One-time • Instant Access</div>
-            </div>
-            <button class="plan-action" onclick="openPayment('block-period','Iron Build Plan','₹999',999)">Get Plan</button>
-          </div>
+          <ul class="plan-features"><li>16-week structured program</li><li>Clear weekly progress plan</li><li>High-protein Indian diet plan</li><li>Weekly check-in support</li></ul>
+          <div class="plan-price-row"><div><div class="plan-price">₹999</div><div class="plan-period">One-time • Instant Access</div></div><button class="plan-action" onclick="openPayment('iron-build','IRON BUILD Plan',999)">Get Plan</button></div>
         </div>
-
         <div class="plan-item">
-          <div class="plan-item-header">
-            <div class="plan-name">COMPLETE FORGE — 6 Days/Week</div>
-            <div class="plan-badge gold">Advanced</div>
-          </div>
+          <div class="plan-item-header"><div class="plan-name">COMPLETE FORGE — 6 Days/Week</div><div class="plan-badge gold">Advanced</div></div>
           <div class="plan-desc">Complete body transformation — build muscle and cut fat together. For people with 1+ year of gym experience.</div>
-          <ul class="plan-features">
-            <li>20-week complete program</li>
-            <li>Detailed diet + meal timing</li>
-            <li>Fat-loss final phase included</li>
-            <li>Budget-friendly supplement guide</li>
-            <li>Bonus: photo & progress tips</li>
-          </ul>
-          <div class="plan-price-row">
-            <div>
-              <div class="plan-price">₹1,499</div>
-              <div class="plan-period">One-time • Instant Access</div>
-            </div>
-            <button class="plan-action" onclick="openPayment('elite-physique','Complete Forge Plan','₹1,499',1499)">Get Plan</button>
-          </div>
+          <ul class="plan-features"><li>20-week complete program</li><li>Detailed diet + meal timing</li><li>Fat-loss final phase included</li><li>Budget-friendly supplement guide</li><li>Bonus: photo & progress tips</li></ul>
+          <div class="plan-price-row"><div><div class="plan-price">₹1,499</div><div class="plan-period">One-time • Instant Access</div></div><button class="plan-action" onclick="openPayment('complete-forge','COMPLETE FORGE Plan',1499)">Get Plan</button></div>
         </div>
-
       </div>
       <div class="service-info">
         <div class="info-block">
@@ -904,41 +504,22 @@
   </div>
 </section>
 
-<!-- ─── ONLINE COACHING ─── -->
+<!-- ─── COACHING ─── -->
 <section id="coaching">
   <div class="coaching-grid">
     <div class="coaching-header">
       <div class="section-label">Online Coaching</div>
       <h2 class="section-title">1:1 WITH ME,<br>DIRECTLY</h2>
-      <p class="section-sub">
-        Not a template. Not an algorithm. A program I write for your body,
-        your schedule, and your goals — with ongoing support.
-      </p>
+      <p class="section-sub">Not a template. Not an algorithm. A program I write for your body, your schedule, and your goals — with ongoing support.</p>
     </div>
     <div class="cards-row">
-      <div class="coach-card">
-        <span class="coach-step">1</span>
-        <span class="coach-icon">📋</span>
-        <div class="coach-title">Deep Intake Assessment</div>
-        <div class="coach-desc">Training history, lifestyle, injuries, equipment access, goals. I map your starting point completely before writing a single set.</div>
-      </div>
-      <div class="coach-card highlight">
-        <span class="coach-step">2</span>
-        <span class="coach-icon">⚙️</span>
-        <div class="coach-title">Custom Program Built for You</div>
-        <div class="coach-desc">Your program is written from scratch, not pulled from a template. Periodized, progressive, and tuned to your recovery capacity.</div>
-      </div>
-      <div class="coach-card">
-        <span class="coach-step">3</span>
-        <span class="coach-icon">📲</span>
-        <div class="coach-title">Weekly Check-ins & Adjustments</div>
-        <div class="coach-desc">Every Sunday I review your data, adjust loads and volume, answer your questions. The program evolves as you do.</div>
-      </div>
+      <div class="coach-card"><span class="coach-step">1</span><span class="coach-icon">📋</span><div class="coach-title">Deep Intake Assessment</div><div class="coach-desc">Training history, lifestyle, injuries, equipment access, goals. I map your starting point completely before writing a single set.</div></div>
+      <div class="coach-card highlight"><span class="coach-step">2</span><span class="coach-icon">⚙️</span><div class="coach-title">Custom Program Built for You</div><div class="coach-desc">Your program is written from scratch, not pulled from a template. Periodized, progressive, and tuned to your recovery capacity.</div></div>
+      <div class="coach-card"><span class="coach-step">3</span><span class="coach-icon">📲</span><div class="coach-title">Weekly Check-ins & Adjustments</div><div class="coach-desc">Every Sunday I review your data, adjust loads and volume, answer your questions. The program evolves as you do.</div></div>
     </div>
-
     <div class="coaching-cta">
       <p><span style="white-space:nowrap;">3-Month Coaching — <strong style="color:var(--white)">₹4,999</strong></span><br><span style="white-space:nowrap;">6-Month Elite — <strong style="color:var(--fire)">₹8,999</strong></span></p>
-      <button class="btn-primary" onclick="openPayment('coaching-3m','Online Coaching — 3 Months','₹4,999',4999)">Apply for Coaching →</button>
+      <button class="btn-primary" onclick="openPayment('coaching-3m','Online Coaching — 3 Months',4999)">Apply for Coaching →</button>
     </div>
   </div>
 </section>
@@ -951,78 +532,59 @@
       <h2 class="section-title">COMPLETE YOUR ORDER</h2>
     </div>
     <div class="payment-grid">
-      <!-- FORM -->
       <div class="order-form">
         <div class="form-title">Your Details</div>
-
         <div class="form-group">
           <label class="form-label">Full Name *</label>
           <input class="form-input" type="text" id="field-name" placeholder="Your full name">
         </div>
-
         <div class="form-group">
           <label class="form-label">Email Address *</label>
           <input class="form-input" type="email" id="field-email" placeholder="your@email.com">
         </div>
-
         <div class="form-group">
           <label class="form-label">Phone Number *</label>
           <input class="form-input" type="tel" id="field-phone" placeholder="+91 XXXXX XXXXX">
         </div>
-
         <div class="form-group">
           <label class="form-label">Product *</label>
           <select class="form-select" id="field-product" onchange="updateOrderSummary()">
             <option value="" disabled selected>Select a product / plan</option>
             <optgroup label="── E-Books ──">
-              <option value="1499" data-name="The Forge Complete Collection">Complete Collection Bundle — ₹1,499</option>
-              <option value="499" data-name="Foundation Code E-Book">Foundation Code — ₹499</option>
-              <option value="399" data-name="The Iron Mind E-Book">The Iron Mind — ₹399</option>
-              <option value="799" data-name="Periodization Mastery E-Book">Periodization Mastery — ₹799</option>
-              <option value="699" data-name="Fuel Protocol E-Book">Fuel Protocol — ₹699</option>
+              <option value="1499" data-key="complete-bundle" data-name="The Forge Complete Collection">Complete Collection Bundle — ₹1,499</option>
+              <option value="499" data-key="foundation-code" data-name="Foundation Code E-Book">Foundation Code — ₹499</option>
+              <option value="399" data-key="iron-mind" data-name="The Iron Mind E-Book">The Iron Mind — ₹399</option>
+              <option value="799" data-key="periodization-mastery" data-name="Periodization Mastery E-Book">Periodization Mastery — ₹799</option>
+              <option value="699" data-key="fuel-protocol" data-name="Fuel Protocol E-Book">Fuel Protocol — ₹699</option>
             </optgroup>
             <optgroup label="── Workout Plans ──">
-              <option value="499" data-name="FIRST FORGE">FIRST FORGE — ₹499</option>
-              <option value="699" data-name="Lean Forge Plan">LEAN FORGE — ₹699</option>
-              <option value="999" data-name="Iron Build Plan">IRON BUILD — ₹999</option>
-              <option value="1499" data-name="Complete Forge Plan">COMPLETE FORGE — ₹1,499</option>
+              <option value="499" data-key="starter-strength" data-name="FIRST FORGE Plan">FIRST FORGE — ₹499</option>
+              <option value="699" data-key="lean-forge" data-name="LEAN FORGE Plan">LEAN FORGE — ₹699</option>
+              <option value="999" data-key="iron-build" data-name="IRON BUILD Plan">IRON BUILD — ₹999</option>
+              <option value="1499" data-key="complete-forge" data-name="COMPLETE FORGE Plan">COMPLETE FORGE — ₹1,499</option>
             </optgroup>
             <optgroup label="── Online Coaching ──">
-              <option value="4999" data-name="Online Coaching — 3 Months">Coaching 3 Months — ₹4,999</option>
-              <option value="8999" data-name="Online Coaching — 6 Months">Coaching 6 Months — ₹8,999</option>
+              <option value="4999" data-key="coaching-3m" data-name="Online Coaching — 3 Months">Coaching 3 Months — ₹4,999</option>
+              <option value="8999" data-key="coaching-6m" data-name="Online Coaching — 6 Months">Coaching 6 Months — ₹8,999</option>
             </optgroup>
           </select>
         </div>
-
         <div class="total-bar">
           <span class="total-label">Order Total</span>
           <span class="total-amount" id="total-display">₹0</span>
         </div>
-
-        <button class="pay-btn" onclick="processPayment()" id="pay-btn">
-          PAY NOW — SECURE CHECKOUT
-        </button>
-
-        <div class="security-note">
-          🔒 Secure checkout powered by Razorpay — pay via UPI, Card, Net Banking or Wallet. 256-bit SSL encrypted.
-        </div>
+        <button class="pay-btn" onclick="processPayment()" id="pay-btn">PAY NOW — SECURE CHECKOUT</button>
+        <div class="security-note">🔒 256-bit SSL encrypted. Powered by Razorpay. UPI · Card · Net Banking · Wallet.</div>
       </div>
-
-      <!-- ORDER SUMMARY -->
       <div class="order-summary">
         <div class="summary-card">
           <div class="summary-title">Order Summary</div>
-          <div id="summary-items">
-            <div class="summary-item" style="color:var(--ash);font-style:italic;font-size:13px;">
-              Select a product above to see your order.
-            </div>
-          </div>
+          <div id="summary-items"><div class="summary-item" style="color:var(--ash);font-style:italic;font-size:13px;">Select a product above to see your order.</div></div>
           <div id="summary-total-row" class="summary-total-row" style="display:none;">
             <span class="summary-total-label">Total</span>
             <span class="summary-total-price" id="summary-total-price">₹0</span>
           </div>
         </div>
-
         <div class="summary-card" style="background:var(--iron);">
           <div class="summary-title" style="font-size:20px;">Delivery & Access</div>
           <ul class="includes-list">
@@ -1033,7 +595,6 @@
             <li><span class="check">✓</span> Support: forgebody@gmail.com</li>
           </ul>
         </div>
-
         <div class="testimonial-mini">
           <div class="testimonial-text">"Bought the bundle at midnight and had all 4 PDFs in my inbox before I finished reading the confirmation email. Legends."</div>
           <div class="testimonial-author">— Priya S., Bangalore</div>
@@ -1049,9 +610,7 @@
     <div class="footer-top">
       <div>
         <a class="footer-brand-name" href="#hero">FORGEBODY</a>
-        <p class="footer-brand-desc">
-          E-Books, workout programs, and online coaching for people who are serious about their body and their mind.
-        </p>
+        <p class="footer-brand-desc">E-Books, workout programs, and online coaching for people who are serious about their body and their mind.</p>
       </div>
       <div>
         <div class="footer-col-title">Products</div>
@@ -1080,9 +639,9 @@
           <li><a href="#payment">Order Now</a></li>
           <li><a href="mailto:forgebody@gmail.com">Contact</a></li>
           <li><a href="privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
+          <li><a href="terms-conditions.html">Terms & Conditions</a></li>
           <li><a href="refund-policy.html">Refund Policy</a></li>
-          <li><a href="shipping-policy.html">Shipping &amp; Delivery</a></li>
+          <li><a href="shipping-policy.html">Shipping & Delivery</a></li>
         </ul>
       </div>
     </div>
@@ -1098,141 +657,203 @@
   </div>
 </footer>
 
-<!-- ─── PAYMENT SUCCESS MODAL ─── -->
+<!-- ─── SUCCESS MODAL ─── -->
 <div class="modal-overlay" id="success-modal">
   <div class="modal">
-    <button class="modal-close" onclick="closeModal()">✕</button>
+    <button class="modal-close" onclick="closeModal('success-modal')">✕</button>
     <div class="modal-icon">🔥</div>
     <div class="modal-title">ORDER PLACED!</div>
-    <p class="modal-sub" id="modal-message">
-      Thank you! Your order has been received. Check your email for your download link and receipt. Time to get to work.
-    </p>
-    <button class="btn-primary" onclick="closeModal()">Close</button>
+    <p class="modal-sub" id="modal-message">Thank you! Your order has been received. Check your email for your download link and receipt. Time to get to work.</p>
+    <button class="btn-primary" onclick="closeModal('success-modal')">Close</button>
   </div>
 </div>
 
-<!-- ─── VALIDATION ERROR MODAL ─── -->
+<!-- ─── ERROR MODAL ─── -->
 <div class="modal-overlay" id="error-modal">
   <div class="modal">
-    <button class="modal-close" onclick="document.getElementById('error-modal').classList.remove('open')">✕</button>
+    <button class="modal-close" onclick="closeModal('error-modal')">✕</button>
     <div class="modal-icon">⚠️</div>
     <div class="modal-title">HOLD ON</div>
     <p class="modal-sub" id="error-message">Please fill in all required fields before proceeding.</p>
-    <button class="btn-primary" onclick="document.getElementById('error-modal').classList.remove('open')">Go Back</button>
+    <button class="btn-primary" onclick="closeModal('error-modal')">Go Back</button>
   </div>
 </div>
 
 <script>
+  // ─── RAZORPAY KEY ───
+  const RAZORPAY_KEY_ID = 'rzp_live_TCsdf1DKoOlEhq';
+
   // ─── TAB SWITCHING ───
-  function switchTab(tab) {
+  function switchTab(tab, event) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
     document.getElementById('tab-' + tab).classList.add('active');
-    event.target.classList.add('active');
+    if (event && event.target) event.target.classList.add('active');
   }
 
-  // ─── ORDER SUMMARY UPDATE ───
+  // ─── ORDER SUMMARY ───
   function updateOrderSummary() {
     const sel = document.getElementById('field-product');
     const opt = sel.options[sel.selectedIndex];
     if (!opt || !opt.value) return;
-
     const price = parseInt(opt.value);
     const name = opt.getAttribute('data-name') || opt.text;
     const formatted = '₹' + price.toLocaleString('en-IN');
-
     document.getElementById('total-display').textContent = formatted;
-
     document.getElementById('summary-items').innerHTML = `
-      <div class="summary-item">
-        <span class="summary-item-name">${name}</span>
-        <span class="summary-item-price">${formatted}</span>
-      </div>
-      <div class="summary-item">
-        <span class="summary-item-name">GST (18%)</span>
-        <span class="summary-item-price">Included</span>
-      </div>
-      <div class="summary-item">
-        <span class="summary-item-name">Delivery</span>
-        <span class="summary-item-price" style="color:var(--fire)">Free (Digital)</span>
-      </div>
+      <div class="summary-item"><span class="summary-item-name">${name}</span><span class="summary-item-price">${formatted}</span></div>
+      <div class="summary-item"><span class="summary-item-name">GST (18%)</span><span class="summary-item-price">Included</span></div>
+      <div class="summary-item"><span class="summary-item-name">Delivery</span><span class="summary-item-price" style="color:var(--fire)">Free (Digital)</span></div>
     `;
     document.getElementById('summary-total-row').style.display = 'flex';
     document.getElementById('summary-total-price').textContent = formatted;
   }
 
-  // ─── PRE-FILL FROM EBOOK / PLAN BUTTONS ───
-  function openPayment(productKey, productName, priceLabel, priceNum) {
+  // ─── PRE-SELECT PRODUCT FROM BUTTONS ───
+  function openPayment(productKey, productName, priceNum) {
     document.getElementById('payment').scrollIntoView({ behavior: 'smooth' });
     setTimeout(() => {
       const sel = document.getElementById('field-product');
-      // find matching option by data-name
       for (let i = 0; i < sel.options.length; i++) {
         const opt = sel.options[i];
-        if (parseInt(opt.value) === priceNum && opt.getAttribute('data-name') === productName) {
+        if (opt.getAttribute('data-key') === productKey) {
           sel.selectedIndex = i;
           break;
-        }
-      }
-      // fallback: match by price
-      if (sel.value !== String(priceNum)) {
-        for (let i = 0; i < sel.options.length; i++) {
-          if (parseInt(sel.options[i].value) === priceNum) {
-            sel.selectedIndex = i; break;
-          }
         }
       }
       updateOrderSummary();
     }, 600);
   }
 
-  function selectProduct(key) {
-    // handled per button
-  }
-
-  // ─── VALIDATE AND PROCESS ───
-  function processPayment() {
+  // ─── VALIDATE FIELDS ───
+  function validateFields() {
     const name = document.getElementById('field-name').value.trim();
     const email = document.getElementById('field-email').value.trim();
     const phone = document.getElementById('field-phone').value.trim();
     const product = document.getElementById('field-product').value;
-
     if (!name || !email || !phone || !product) {
       showError('Please fill in your name, email, phone, and select a product.');
-      return;
+      return null;
     }
     if (!email.includes('@') || !email.includes('.')) {
       showError('Please enter a valid email address.');
-      return;
+      return null;
     }
-
-    // Simulate payment — this is where the real Razorpay checkout.js modal opens
-    const btn = document.getElementById('pay-btn');
-    btn.disabled = true;
-    btn.textContent = 'PROCESSING...';
-
-    setTimeout(() => {
-      btn.disabled = false;
-      btn.textContent = 'PAY NOW — SECURE CHECKOUT';
-      showSuccess(name, email);
-    }, 2200);
+    const sel = document.getElementById('field-product');
+    const opt = sel.options[sel.selectedIndex];
+    return {
+      name, email, phone,
+      amount: parseInt(product),
+      productKey: opt.getAttribute('data-key'),
+      productName: opt.getAttribute('data-name') || opt.text
+    };
   }
 
+  // ─── PROCESS PAYMENT ───
+  async function processPayment() {
+    const data = validateFields();
+    if (!data) return;
+
+    const btn = document.getElementById('pay-btn');
+    btn.disabled = true;
+    btn.textContent = 'CREATING ORDER...';
+
+    try {
+      // Step 1: Create Razorpay order via backend
+      const orderRes = await fetch('/api/create-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          amount: data.amount,
+          currency: 'INR',
+          receipt: 'forge_' + Date.now()
+        })
+      });
+
+      if (!orderRes.ok) throw new Error('Could not create order. Please try again.');
+      const order = await orderRes.json();
+
+      // Step 2: Open Razorpay checkout popup
+      const options = {
+        key: RAZORPAY_KEY_ID,
+        amount: order.amount,
+        currency: order.currency,
+        name: 'FORGE Body',
+        description: data.productName,
+        order_id: order.id,
+        prefill: {
+          name: data.name,
+          email: data.email,
+          contact: data.phone
+        },
+        theme: { color: '#FF4500' },
+        handler: async function(response) {
+          btn.textContent = 'VERIFYING PAYMENT...';
+          // Step 3: Verify payment + send email
+          const verifyRes = await fetch('/api/verify-payment', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+              customerName: data.name,
+              customerEmail: data.email,
+              productName: data.productName,
+              productKey: data.productKey
+            })
+          });
+
+          if (verifyRes.ok) {
+            showSuccess(data.name, data.email, data.productName);
+            resetForm();
+          } else {
+            showError('Payment received but verification failed. Please contact forgebody@gmail.com with your payment ID: ' + response.razorpay_payment_id);
+          }
+          btn.disabled = false;
+          btn.textContent = 'PAY NOW — SECURE CHECKOUT';
+        },
+        modal: {
+          ondismiss: function() {
+            btn.disabled = false;
+            btn.textContent = 'PAY NOW — SECURE CHECKOUT';
+          }
+        }
+      };
+
+      const rzp = new Razorpay(options);
+      rzp.on('payment.failed', function(response) {
+        showError('Payment failed: ' + response.error.description);
+        btn.disabled = false;
+        btn.textContent = 'PAY NOW — SECURE CHECKOUT';
+      });
+      rzp.open();
+
+    } catch (err) {
+      showError(err.message || 'Something went wrong. Please try again.');
+      btn.disabled = false;
+      btn.textContent = 'PAY NOW — SECURE CHECKOUT';
+    }
+  }
+
+  // ─── HELPERS ───
   function showError(msg) {
     document.getElementById('error-message').textContent = msg;
     document.getElementById('error-modal').classList.add('open');
   }
 
-  function showSuccess(name, email) {
-    const sel = document.getElementById('field-product');
-    const productName = sel.options[sel.selectedIndex].getAttribute('data-name') || sel.options[sel.selectedIndex].text;
+  function showSuccess(name, email, productName) {
     document.getElementById('modal-message').innerHTML =
-      `<strong>${name}</strong>, your order for <strong>${productName}</strong> is confirmed! ` +
-      `A confirmation + download link has been sent to <strong>${email}</strong>. ` +
-      `<br><br>Now go earn it. 🔥`;
+      `<strong>${name}</strong>, your order for <strong>${productName}</strong> is confirmed!<br><br>` +
+      `Download link sent to <strong>${email}</strong>. Now go earn it. 🔥`;
     document.getElementById('success-modal').classList.add('open');
+  }
 
-    // Reset form
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+  }
+
+  function resetForm() {
     ['field-name','field-email','field-phone'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.value = '';
@@ -1241,10 +862,6 @@
     document.getElementById('total-display').textContent = '₹0';
     document.getElementById('summary-items').innerHTML = '<div class="summary-item" style="color:var(--ash);font-style:italic;font-size:13px;">Select a product above to see your order.</div>';
     document.getElementById('summary-total-row').style.display = 'none';
-  }
-
-  function closeModal() {
-    document.getElementById('success-modal').classList.remove('open');
   }
 
   // ─── SCROLL FADE IN ───
